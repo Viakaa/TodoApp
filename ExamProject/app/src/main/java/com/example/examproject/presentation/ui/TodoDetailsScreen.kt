@@ -1,6 +1,8 @@
 package com.example.examproject.presentation.ui
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
@@ -65,6 +67,7 @@ fun TodoDetailsScreen(
                         horizontal = dimensionResource(id = R.dimen.horizontal_padding),
                         vertical = 0.dp
                     )
+                    .verticalScroll(rememberScrollState())
                     .fillMaxSize()
             ) {
                 if (isEditing) {
@@ -117,7 +120,12 @@ fun TodoDetailsScreen(
                             contentColor = colorResource(id = R.color.tertiary_color)
                         )
                     ) {
-                        Text(if (isSaving) stringResource(id = R.string.saving_text) else stringResource(id = R.string.save_button))
+                        Text(
+                            if (isSaving)
+                                stringResource(id = R.string.saving_text)
+                            else
+                                stringResource(id = R.string.save_button)
+                        )
                     }
                 } else {
                     Text(

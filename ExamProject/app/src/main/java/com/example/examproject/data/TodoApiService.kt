@@ -14,11 +14,10 @@ interface TodoApiService {
     suspend fun addTodo(@Body todo: Todo): Todo
 
     @GET("todos")
-    suspend fun getTodos(): TodoListResponse
+    suspend fun getTodos(): TodoResponse
 
     @PUT("todos/{id}")
     suspend fun updateTodo(@Path("id") id: Int, @Body todoUpdate: TodoUpdate): Todo
 
 }
 
-data class TodoListResponse(val todos: List<Todo>)
